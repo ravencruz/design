@@ -1,11 +1,12 @@
 package org.learn.shadow.factory;
 
 /**
- * J
+ * It should be the only part of our app that refers to concrete Pizza classes
  */
 public class SimplePizzaFactory {
     public Pizza createPizza(String type) {
         Pizza pizza = null;
+
         if (type.equals("cheese")) {
             pizza = new CheesePizza();
 
@@ -21,9 +22,10 @@ public class SimplePizzaFactory {
         } else if (type.equals("veggie")) {
             pizza = new VeggiePizza();
 
-        } else {
-            pizza = new Pizza();
         }
+//        else {
+//            pizza = new Pizza();
+//        }
         return pizza;
     }
 }

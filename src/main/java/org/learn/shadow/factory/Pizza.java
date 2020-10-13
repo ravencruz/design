@@ -1,6 +1,6 @@
 package org.learn.shadow.factory;
 
-public class Pizza {
+public abstract class Pizza {
 
     public void prepare() {
         System.out.println("prepare");
