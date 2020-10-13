@@ -2,21 +2,15 @@ package org.learn.shadow.factory;
 
 public class OrderPizza {
 
+    private SimplePizzaFactory factory = new SimplePizzaFactory();
+
+    /**
+     * Only cares about it is get a pizza
+     * @param type
+     * @return
+     */
     public Pizza orderPizza(String type) {
-        Pizza pizza;
-
-        if (type.equals("cheese")) {
-            pizza = new CheesePizza();
-
-        } else if (type.equals("greek")) {
-            pizza = new GreekPizza();
-
-        } else if (type.equals("pepperoni")) {
-            pizza = new PepperoniPizza();
-
-        } else {
-            pizza = new Pizza();
-        }
+        Pizza pizza = factory.createPizza(type);
 
         pizza.prepare();
         pizza.bake();
