@@ -12,6 +12,6 @@ public class App
     {
         System.out.println( "Hello World!" );
         OrderPizza order = new OrderPizza();
-        order.orderPizza();
+        order.orderPizza("cheese");
     }
 }
