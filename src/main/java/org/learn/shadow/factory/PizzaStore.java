@@ -1,13 +1,13 @@
 package org.learn.shadow.factory;
 
-public class OrderPizza {
+public abstract class PizzaStore {
 
-    private SimplePizzaFactory factory;
+//    private SimplePizzaFactory factory;
 
     /** Object composition allow us to change behavior dynamically at runtime **/
-    public OrderPizza(SimplePizzaFactory factory) {
-        this.factory = factory;
-    }
+//    public PizzaStore(SimplePizzaFactory factory) {
+//        this.factory = factory;
+//    }
 
     /**
      * Only cares about it is get a pizza
@@ -16,11 +16,15 @@ public class OrderPizza {
      *
      * Podrias hacerlo statico ? si, pero no olvides que la desventaja es que no podrias crear una sublclase y
      * cambiar el comportamiento
+     *
+     * has no idea which subclass is actually running the code and making the pizzas
+     * (in other words its decoupled)
+     *
      * @param type
      * @return
      */
     public Pizza orderPizza(String type) {
-        Pizza pizza = factory.createPizza(type);
+        Pizza pizza = createPizza(type);
 
         pizza.prepare();
         pizza.bake();
@@ -30,4 +34,5 @@ public class OrderPizza {
         return pizza;
     }
 
+    abstract Pizza createPizza(String type);
 }
